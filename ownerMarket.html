@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home Page</title>
+    <title>Market</title>
     <link rel="icon" href="media/images/utilities/paw.png" type="image/png">
 
     <!-- BS LINKS -->
@@ -772,7 +772,7 @@
     <div id="chatDropdown">
         <h4>Chats</h4>
         <hr>
-        <div class="chat-message">
+        <div class="chat-message" data-user="John Doe" data-text="Hey! How are you doing today? I wanted to ask about...">
             <img class="profile-img" src="media/images/profiles/213.jpg" alt="Profile Picture">
             <div class="message-details">
                 <p class="name">John Doe</p>
@@ -780,7 +780,7 @@
                 <span class="time">10:30 AM</span>
             </div>
         </div>
-        <div class="chat-message">
+        <div class="chat-message" data-user="Jane Smith" data-text="I'm good! Let's catch up soon.">
             <img class="profile-img" src="media/images/profiles/321.jpg" alt="Profile Picture">
             <div class="message-details">
                 <p class="name">Jane Smith</p>
@@ -788,8 +788,26 @@
                 <span class="time">10:32 AM</span>
             </div>
         </div>
-        <!-- Add more messages as needed -->
     </div>
+    
+    <div class="modal fade" id="conversationModal" tabindex="-1" aria-labelledby="conversationModalTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 id="conversationModalTitle" class="modal-title">Chat with <span id="userName"></span></h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body" id="conversationContent">
+                    <!-- Chat content will be dynamically loaded here -->
+                </div>
+                <div class="modal-footer">
+                    <input type="text" id="messageInput" class="form-control me-2" placeholder="Type a message...">
+                    <button type="button" class="btn btn-primary" id="sendButton">Send</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
 
     <div id="bellDropdown">
         <h4>Notifications</h4>
@@ -1182,6 +1200,34 @@
                 showLoadingScreen();
             });
         });
+
+        document.querySelectorAll('.chat-message').forEach(message => {
+            message.addEventListener('click', function () {
+                const userName = this.getAttribute('data-user');
+                const userMessage = this.getAttribute('data-text');
+        
+                // Update modal content
+                document.getElementById('userName').textContent = userName;
+                document.getElementById('conversationContent').innerHTML = `
+                    <div class="d-flex align-items-start mb-3">
+                        <img src="media/images/default-profile.png" class="rounded-circle me-2" width="40" height="40" alt="${userName}">
+                        <div class="bg-light p-2 rounded">
+                            <strong>${userName}:</strong> ${userMessage}
+                        </div>
+                    </div>
+                    <div class="d-flex align-items-start justify-content-end mb-3">
+                        <div class="bg-primary text-white p-2 rounded">
+                            <strong>You:</strong> Sure! Let me check.
+                        </div>
+                    </div>
+                `;
+        
+                // Show modal
+                const conversationModal = new bootstrap.Modal(document.getElementById('conversationModal'));
+                conversationModal.show();
+            });
+        });
+        
 
         document.querySelectorAll('.chat-item').forEach(item => {
             item.addEventListener('click', function () {

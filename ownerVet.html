@@ -573,7 +573,7 @@
         }
 
         #appointmentCard:hover {
-            height: 50%; /* Expand to a fixed height on hover */
+            height: 40%; /* Expand to a fixed height on hover */
         }
         
         /* Add this fallback to ensure consistent behavior */
@@ -944,7 +944,10 @@
             </div>
             <div id="middleContent" class="col-md-3">
                 <div id="appointmentCard" class="card p-3">
-                    <h5 class="text-start text-center">Appointments</h5>
+                    <div class="d-flex justify-content-center align-items-center position-relative">
+                        <h5 class="text-center mb-0">Appointments</h5>
+                        <span class="badge bg-danger rounded-pill position-absolute end-0">3</span>
+                    </div>
                     <ul id="appointmentList" class="list-unstyled mt-3">
                         <li class="appoints d-flex align-items-center mb-3">
                             <img src="media/images/pets/buddy.jpg" alt="Buddy" class="rounded-circle me-3" width="40" height="40">
@@ -952,9 +955,7 @@
                                 <strong>Buddy</strong>
                                 <p class="mb-0">Rabies Vaccine</p>
                                 <small>2025-02-10 at 10:00 AM</small>
-                                
                             </div>
-                            
                         </li>
                         <hr>
                         <li class="appoints d-flex align-items-center mb-3">
@@ -976,6 +977,18 @@
                         </li>
                     </ul>
                 </div>
+
+                <div id="petMateList" class="card p-3 cardPet">
+                    <div class="petMateH5">
+                        <h5 class="">Vets Near Me</h5>
+                    </div>
+                    <div id="map" style="height: 500px; width: 100%;"></div>
+
+                    
+                </div>
+
+                
+                
                 
                 
             </div>
@@ -990,48 +1003,57 @@
                                         <div class="fw-bold">John Doe</div>
                                         <span id="postScopeContainer"><i id="postScope" class="fa-solid fa-user-group"></i></span>
                                     </div>
-                                    
-                                    <div class="text-muted">Pet: Buddy</div>
+                                    <div class="text-muted">Asked on: 2025-01-11 14:30</div>
                                 </div>
                             </div>
                             <div class="post-content mb-3">
-                                <!-- Sample caption -->
-                                <p>This is a sample caption describing the photos below. Buddy enjoying a sunny day at the park!</p>
-                                
-                                <!-- Photo Grid with Modal Trigger -->
-                                <div class="row g-2">
-                                    <div class="col-4">
-                                        <img src="media/images/posts/buddy.jpg" alt="Buddy in the park" class="img-fluid rounded img-thumbnail" data-bs-toggle="modal" data-bs-target="#imageModal" onclick="showImage(this)">
+                                <!-- Question Content -->
+                                <p class="fw-bold">What vaccinations are recommended for a 2-month-old puppy?</p>
+                            </div>
+                    
+                            <!-- Answer Section -->
+                            <div class="post-footer">
+                                <div class="answer-card card p-2 mb-2">
+                                    <div class="answer-header d-flex align-items-center mb-2">
+                                        <img src="media/images/profiles/vet1.jpg" alt="Vet Profile" class="profile-img me-2">
+                                        <div>
+                                            <div class="fw-bold">Dr. Sarah Vet</div>
+                                            <div class="text-muted">Replied on: 2025-01-12 09:45</div>
+                                        </div>
                                     </div>
-                                    <div class="col-4">
-                                        <img src="media/images/posts/buddy.jpg" alt="Buddy playing with a ball" class="img-fluid rounded img-thumbnail" data-bs-toggle="modal" data-bs-target="#imageModal" onclick="showImage(this)">
+                                    <div class="post-content">
+                                        <p>At 2 months, your puppy should receive vaccinations for Distemper, Parvovirus, and Hepatitis. Consult your local vet to create a complete vaccination schedule.</p>
                                     </div>
-                                    <div class="col-4">
-                                        <img src="media/images/posts/buddy.jpg" alt="Buddy resting" class="img-fluid rounded img-thumbnail" data-bs-toggle="modal" data-bs-target="#imageModal" onclick="showImage(this)">
+                                </div>
+                    
+                                <div class="answer-card card p-2 mb-2">
+                                    <div class="answer-header d-flex align-items-center mb-2">
+                                        <img src="media/images/profiles/vet2.jpg" alt="Vet Profile" class="profile-img me-2">
+                                        <div>
+                                            <div class="fw-bold">Dr. Alex Vet</div>
+                                            <div class="text-muted">Replied on: 2025-01-12 10:15</div>
+                                        </div>
+                                    </div>
+                                    <div class="post-content">
+                                        <p>I agree with Dr. Sarah. Additionally, discuss Rabies vaccination if it's required in your area for puppies over 3 months old.</p>
                                     </div>
                                 </div>
                             </div>
-                            <div class="post-footer d-flex justify-content-between align-items-center">
-                                <div class="tagged-users">
-                                    <span class="text-muted">Tagged: </span>
-                                    <span class="tagged-user">Alex Johnson, Samantha Lee</span>
-                                </div>
-                                <div class="post-time text-muted">
-                                    <span>Posted on: 2025-01-11 14:30</span>
-                                </div>
-                            </div>
+                    
+                            <!-- Actions -->
                             <div class="post-actions d-flex justify-content-start mt-3">
                                 <button class="btn btn-light btn-sm me-2">
                                     <i class="fas postFas fa-thumbs-up"></i> Like
                                 </button>
                                 <button class="btn btn-light btn-sm me-2">
-                                    <i class="fas postFas fa-comment"></i> Comment
+                                    <i class="fas postFas fa-comment"></i> Reply
                                 </button>
                                 <button class="btn btn-light btn-sm">
                                     <i class="fas postFas fa-share"></i> Share
                                 </button>
                             </div>
                         </div>
+                        <!-- Forum Question 1 -->
                         <div class="post-card card p-3 mb-4">
                             <div class="post-header d-flex align-items-center mb-3">
                                 <img src="media/images/profiles/123.jpg" alt="User Profile" class="profile-img me-3">
@@ -1040,149 +1062,146 @@
                                         <div class="fw-bold">John Doe</div>
                                         <span id="postScopeContainer"><i id="postScope" class="fa-solid fa-user-group"></i></span>
                                     </div>
+                                    <div class="text-muted">Asked on: 2025-01-11 14:30</div>
                                 </div>
                             </div>
                             <div class="post-content mb-3">
-                                <!-- Sample caption -->
-                                <p>This is a sample caption describing the photos below. Buddy enjoying a sunny day at the park!</p>
-                                
-                                <!-- Photo Grid with Modal Trigger -->
-                                <div class="row g-2">
-                                    <div class="col-4">
-                                        <img src="media/images/posts/buddy.jpg" alt="Buddy in the park" class="img-fluid rounded img-thumbnail" data-bs-toggle="modal" data-bs-target="#imageModal" onclick="showImage(this)">
-                                    </div>
-                                    <div class="col-4">
-                                        <img src="media/images/posts/buddy.jpg" alt="Buddy playing with a ball" class="img-fluid rounded img-thumbnail" data-bs-toggle="modal" data-bs-target="#imageModal" onclick="showImage(this)">
-                                    </div>
-                                    <div class="col-4">
-                                        <img src="media/images/posts/buddy.jpg" alt="Buddy resting" class="img-fluid rounded img-thumbnail" data-bs-toggle="modal" data-bs-target="#imageModal" onclick="showImage(this)">
-                                    </div>
-                                </div>
+                                <p class="fw-bold">What vaccinations are recommended for a 2-month-old puppy?</p>
                             </div>
-                            <div class="post-footer d-flex justify-content-between align-items-center">
-                                <div class="tagged-users">
-                                    <span class="text-muted">Tagged: </span>
-                                    <span class="tagged-user">Alex Johnson, Samantha Lee</span>
+                            <div class="post-footer">
+                                <div class="answer-card card p-2 mb-2">
+                                    <div class="answer-header d-flex align-items-center mb-2">
+                                        <img src="media/images/profiles/vet1.jpg" alt="Vet Profile" class="profile-img me-2">
+                                        <div>
+                                            <div class="fw-bold">Dr. Sarah Vet</div>
+                                            <div class="text-muted">Replied on: 2025-01-12 09:45</div>
+                                        </div>
+                                    </div>
+                                    <div class="post-content">
+                                        <p>At 2 months, your puppy should receive vaccinations for Distemper, Parvovirus, and Hepatitis. Consult your local vet to create a complete vaccination schedule.</p>
+                                    </div>
                                 </div>
-                                <div class="post-time text-muted">
-                                    <span>Posted on: 2025-01-11 14:30</span>
-                                </div>
-                            </div>
-                            <div class="post-actions d-flex justify-content-start mt-3">
-                                <button class="btn btn-light btn-sm me-2">
-                                    <i class="fas postFas fa-thumbs-up"></i> Like
-                                </button>
-                                <button class="btn btn-light btn-sm me-2">
-                                    <i class="fas postFas fa-comment"></i> Comment
-                                </button>
-                                <button class="btn btn-light btn-sm">
-                                    <i class="fas postFas fa-share"></i> Share
-                                </button>
                             </div>
                         </div>
+                    
+                        <!-- Forum Question 2 -->
                         <div class="post-card card p-3 mb-4">
                             <div class="post-header d-flex align-items-center mb-3">
-                                <img src="media/images/profiles/123.jpg" alt="User Profile" class="profile-img me-3">
+                                <img src="media/images/profiles/234.jpg" alt="User Profile" class="profile-img me-3">
                                 <div>
-                                    <div class="d-flex">
-                                        <div class="fw-bold">John Doe</div>
-                                        <span id="postScopeContainer"><i id="postScope" class="fa-solid fa-user-group"></i></span>
-                                    </div>
-                                    <div class="text-muted">Pet: Buddy</div>
+                                    <div class="fw-bold">Jane Smith</div>
+                                    <div class="text-muted">Asked on: 2025-01-15 10:20</div>
                                 </div>
                             </div>
                             <div class="post-content mb-3">
-                                <!-- Sample caption -->
-                                <p>This is a sample caption describing the photos below. Buddy enjoying a sunny day at the park!</p>
-                                
-                                <!-- Photo Grid with Modal Trigger -->
-                                <div class="row g-2">
-                                    <div class="col-4">
-                                        <img src="media/images/posts/buddy.jpg" alt="Buddy in the park" class="img-fluid rounded img-thumbnail" data-bs-toggle="modal" data-bs-target="#imageModal" onclick="showImage(this)">
-                                    </div>
-                                    <div class="col-4">
-                                        <img src="media/images/posts/buddy.jpg" alt="Buddy playing with a ball" class="img-fluid rounded img-thumbnail" data-bs-toggle="modal" data-bs-target="#imageModal" onclick="showImage(this)">
-                                    </div>
-                                    <div class="col-4">
-                                        <img src="media/images/posts/buddy.jpg" alt="Buddy resting" class="img-fluid rounded img-thumbnail" data-bs-toggle="modal" data-bs-target="#imageModal" onclick="showImage(this)">
-                                    </div>
-                                </div>
+                                <p class="fw-bold">How often should I bathe my golden retriever?</p>
                             </div>
-                            <div class="post-footer d-flex justify-content-between align-items-center">
-                                <div class="tagged-users">
-                                    <span class="text-muted">Tagged: </span>
-                                    <span class="tagged-user">Alex Johnson, Samantha Lee</span>
+                            <div class="post-footer">
+                                <div class="answer-card card p-2 mb-2">
+                                    <div class="answer-header d-flex align-items-center mb-2">
+                                        <img src="media/images/profiles/vet2.jpg" alt="Vet Profile" class="profile-img me-2">
+                                        <div>
+                                            <div class="fw-bold">Dr. Alex Vet</div>
+                                            <div class="text-muted">Replied on: 2025-01-15 12:10</div>
+                                        </div>
+                                    </div>
+                                    <div class="post-content">
+                                        <p>Golden Retrievers generally need a bath every 6–8 weeks unless they get very dirty. Overbathing can dry out their skin.</p>
+                                    </div>
                                 </div>
-                                <div class="post-time text-muted">
-                                    <span>Posted on: 2025-01-11 14:30</span>
-                                </div>
-                            </div>
-                            <div class="post-actions d-flex justify-content-start mt-3">
-                                <button class="btn btn-light btn-sm me-2">
-                                    <i class="fas postFas fa-thumbs-up"></i> Like
-                                </button>
-                                <button class="btn btn-light btn-sm me-2">
-                                    <i class="fas postFas fa-comment"></i> Comment
-                                </button>
-                                <button class="btn btn-light btn-sm">
-                                    <i class="fas postFas fa-share"></i> Share
-                                </button>
                             </div>
                         </div>
+                    
+                        <!-- Forum Question 3 -->
                         <div class="post-card card p-3 mb-4">
                             <div class="post-header d-flex align-items-center mb-3">
-                                <img src="media/images/profiles/123.jpg" alt="User Profile" class="profile-img me-3">
+                                <img src="media/images/profiles/345.jpg" alt="User Profile" class="profile-img me-3">
                                 <div>
-                                    <div class="d-flex">
-                                        <div class="fw-bold">John Doe</div>
-                                        <span id="postScopeContainer"><i id="postScope" class="fa-solid fa-user-group"></i></span>
-                                    </div>
-                                    <div class="text-muted">Pet: Buddy</div>
+                                    <div class="fw-bold">Emma Johnson</div>
+                                    <div class="text-muted">Asked on: 2025-01-17 08:45</div>
                                 </div>
                             </div>
                             <div class="post-content mb-3">
-                                <!-- Sample caption -->
-                                <p>This is a sample caption describing the photos below. Buddy enjoying a sunny day at the park!</p>
-                                
-                                <!-- Photo Grid with Modal Trigger -->
-                                <div class="row g-2">
-                                    <div class="col-4">
-                                        <img src="media/images/posts/buddy.jpg" alt="Buddy in the park" class="img-fluid rounded img-thumbnail" data-bs-toggle="modal" data-bs-target="#imageModal" onclick="showImage(this)">
+                                <p class="fw-bold">What are some signs of allergies in cats?</p>
+                            </div>
+                            <div class="post-footer">
+                                <div class="answer-card card p-2 mb-2">
+                                    <div class="answer-header d-flex align-items-center mb-2">
+                                        <img src="media/images/profiles/vet1.jpg" alt="Vet Profile" class="profile-img me-2">
+                                        <div>
+                                            <div class="fw-bold">Dr. Sarah Vet</div>
+                                            <div class="text-muted">Replied on: 2025-01-17 11:00</div>
+                                        </div>
                                     </div>
-                                    <div class="col-4">
-                                        <img src="media/images/posts/buddy.jpg" alt="Buddy playing with a ball" class="img-fluid rounded img-thumbnail" data-bs-toggle="modal" data-bs-target="#imageModal" onclick="showImage(this)">
-                                    </div>
-                                    <div class="col-4">
-                                        <img src="media/images/posts/buddy.jpg" alt="Buddy resting" class="img-fluid rounded img-thumbnail" data-bs-toggle="modal" data-bs-target="#imageModal" onclick="showImage(this)">
+                                    <div class="post-content">
+                                        <p>Common signs include excessive scratching, sneezing, watery eyes, and vomiting. It’s best to visit a vet to determine the cause and treatment.</p>
                                     </div>
                                 </div>
                             </div>
-                            <div class="post-footer d-flex justify-content-between align-items-center">
-                                <div class="tagged-users">
-                                    <span class="text-muted">Tagged: </span>
-                                    <span class="tagged-user">Alex Johnson, Samantha Lee</span>
-                                </div>
-                                <div class="post-time text-muted">
-                                    <span>Posted on: 2025-01-11 14:30</span>
+                        </div>
+                    
+                        <!-- Forum Question 4 -->
+                        <div class="post-card card p-3 mb-4">
+                            <div class="post-header d-flex align-items-center mb-3">
+                                <img src="media/images/profiles/456.jpg" alt="User Profile" class="profile-img me-3">
+                                <div>
+                                    <div class="fw-bold">Chris Brown</div>
+                                    <div class="text-muted">Asked on: 2025-01-18 13:15</div>
                                 </div>
                             </div>
-                            <div class="post-actions d-flex justify-content-start mt-3">
-                                <button class="btn btn-light btn-sm me-2">
-                                    <i class="fas postFas fa-thumbs-up"></i> Like
-                                </button>
-                                <button class="btn btn-light btn-sm me-2">
-                                    <i class="fas postFas fa-comment"></i> Comment
-                                </button>
-                                <button class="btn btn-light btn-sm">
-                                    <i class="fas postFas fa-share"></i> Share
-                                </button>
+                            <div class="post-content mb-3">
+                                <p class="fw-bold">What should I feed my 6-week-old kitten?</p>
+                            </div>
+                            <div class="post-footer">
+                                <div class="answer-card card p-2 mb-2">
+                                    <div class="answer-header d-flex align-items-center mb-2">
+                                        <img src="media/images/profiles/vet2.jpg" alt="Vet Profile" class="profile-img me-2">
+                                        <div>
+                                            <div class="fw-bold">Dr. Alex Vet</div>
+                                            <div class="text-muted">Replied on: 2025-01-18 14:30</div>
+                                        </div>
+                                    </div>
+                                    <div class="post-content">
+                                        <p>Offer high-quality kitten food designed for their age, either wet or dry. Avoid giving cow’s milk as it can upset their stomach.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    
+                        <!-- Forum Question 5 -->
+                        <div class="post-card card p-3 mb-4">
+                            <div class="post-header d-flex align-items-center mb-3">
+                                <img src="media/images/profiles/567.jpg" alt="User Profile" class="profile-img me-3">
+                                <div>
+                                    <div class="fw-bold">Liam Taylor</div>
+                                    <div class="text-muted">Asked on: 2025-01-19 09:50</div>
+                                </div>
+                            </div>
+                            <div class="post-content mb-3">
+                                <p class="fw-bold">Is it normal for my dog to eat grass?</p>
+                            </div>
+                            <div class="post-footer">
+                                <div class="answer-card card p-2 mb-2">
+                                    <div class="answer-header d-flex align-items-center mb-2">
+                                        <img src="media/images/profiles/vet1.jpg" alt="Vet Profile" class="profile-img me-2">
+                                        <div>
+                                            <div class="fw-bold">Dr. Sarah Vet</div>
+                                            <div class="text-muted">Replied on: 2025-01-19 11:10</div>
+                                        </div>
+                                    </div>
+                                    <div class="post-content">
+                                        <p>Yes, it’s common and usually not harmful. However, if it’s frequent or excessive, it could indicate digestive issues or nutritional deficiencies.</p>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
+                    
                 </div>
     
                 <div id="publicContainer" class=" hidden">
                     <div class="post-list">
+                        
                         <div class="post-card card p-3 mb-4">
                             <div class="post-header d-flex align-items-center mb-3">
                                 <img src="media/images/profiles/123.jpg" alt="User Profile" class="profile-img me-3">
@@ -1458,6 +1477,9 @@
   
     <!-- AJAX link -->
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <script>
     // JS for the loading page
@@ -1556,6 +1578,30 @@
                 showLoadingScreen();
             });
         });
+
+            const map = L.map('map').setView([14.413375394939443, 120.93700475590103], 12); // Set to your preferred center
+
+        // Add OpenStreetMap tiles
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
+        // Example vet locations (replace with your data)
+        const vetLocations = [
+            { name: "Oikos Animal Clinic", lat: 14.390443338924861, lng: 120.9398079280628 },
+            { name: "Imus Pet Crossing Animal Clinic", lat: 14.410874369728225, lng: 120.93923625547363 },
+            { name: "EMC Veterinary Clinic - Bucandala III", lat: 14.40859940418372, lng: 120.92799425271097 },
+            { name: "BF Paw and Claw Imus Veterinary Clinic", lat: 14.41325468884495, lng: 120.95271349056279 },
+            { name: "Paw's street veterinary clinic", lat: 14.422232463553444, lng: 120.94069719393363 },
+            
+        ];
+
+        // Add markers for vet locations
+        vetLocations.forEach(vet => {
+            L.marker([vet.lat, vet.lng])
+                .addTo(map)
+                .bindPopup(`<strong>${vet.name}</strong>`);
+        });
+
 
     // JS for the Side Bar ------------------------------------------------------
     </script>

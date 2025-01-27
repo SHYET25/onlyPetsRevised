@@ -861,7 +861,7 @@
                     <div class="row" id="productGrid">
                         <!-- Product Card 1 -->
                         <div class="col-md-4 mb-4">
-                            <div class="card h-100 product-card">
+                            <div class="card h-100 product-card" data-bs-toggle="modal" data-bs-target="#productModal">
                                 <img src="media/images/products/1.jpg" class="card-img-top product-card-img-top" alt="Product 1">
                                 <div class="card-body">
                                     <h5 class="card-title product-card-title">Product Name 1</h5>
@@ -869,6 +869,38 @@
                                 </div>
                             </div>
                         </div>
+
+                        <!-- Modal -->
+                        <div class="modal fade" id="productModal" tabindex="-1" aria-labelledby="productModalLabel" aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="productModalLabel">Pedigree Dog Food</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <!-- Product Image -->
+                                        <div class="text-center mb-3">
+                                            <img src="media/images/products/1.jpg" class="img-fluid" alt="Pedigree Food">
+                                        </div>
+                                        <!-- Product Details -->
+                                        <div class="product-details">
+                                            <h5 class="mb-3">Product Description</h5>
+                                            <p>This is a premium quality dog food from Pedigree. It is designed to give your dog all the essential nutrients for a healthy life.</p>
+                                            
+                                            <h5>Price: <span class="text-success">$19.99</span></h5>
+                                            
+                                            <h5>Weight: 2kg</h5>
+                                            <h5>Ingredients: Chicken, rice, vegetable oil, vitamins.</h5>
+                                            
+                                            <button class="btn btn-primary mt-3">Add to Cart</button>
+                                            <button class="btn btn-primary mt-3">Buy Now</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
                         <div class="col-md-4 mb-4">
                             <div class="card h-100 product-card">
                                 <img src="media/images/products/1.jpg" class="card-img-top product-card-img-top" alt="Product 1">

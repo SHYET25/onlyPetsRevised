@@ -242,21 +242,21 @@
         }
         
         .name {
-            font-weight: 600;
+            font-weight: bold;
             font-size: 14px;
             color: #333;
-            margin-bottom: 3px;
+            margin-bottom: 5px;
         }
         
         .notification {
-            font-size: 13px;
+            font-size: 14px;
             color: #555;
             line-height: 1.4;
             margin-bottom: 5px;
         }
         
         .time {
-            font-size: 11px;
+            font-size: 12px;
             color: #aaa;
             align-self: flex-end;
         }
@@ -277,6 +277,10 @@
         
         #bellDropdown::-webkit-scrollbar-track {
             background-color: #f1f1f1;
+        }
+
+        .text-warning {
+            color: #ffc107; /* Yellow color for the 'Haha' reaction */
         }
     
         /* Sidebar Styling */
@@ -754,6 +758,14 @@
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
         }
         
+        .pet-img2 {
+            width: 200px; /* Fixed size for profile image */
+            height: 200px; /* Ensure the height matches */
+            object-fit: cover; /* Prevents stretching of the image */
+            border-radius: 50%; /* Makes it circular */
+        }
+
+        
     </style>
 
     
@@ -948,7 +960,7 @@
     <div id="bellDropdown">
         <h4>Notifications</h4>
         <hr>
-        <div class="notification-message">
+        <div class="notification-message" data-bs-toggle="modal" data-bs-target="#notificationModal">
             <img class="profile-img" src="media/images/profiles/321.jpg" alt="Profile Picture">
             <div class="notification-details">
                 <p class="name">Jane Smith</p>
@@ -956,7 +968,8 @@
                 <span class="time">10:32 AM</span>
             </div>
         </div>
-        <div class="notification-message">
+
+        <div class="notification-message" data-bs-toggle="modal" data-bs-target="#notificationModal">
             <img class="profile-img" src="media/images/profiles/321.jpg" alt="Profile Picture">
             <div class="notification-details">
                 <p class="name">Jane Smith</p>
@@ -966,6 +979,68 @@
         </div>
         <!-- Add more messages as needed -->
     </div>
+            <!-- Notification Modal -->
+            <div class="modal fade" id="notificationModal" tabindex="-1" aria-labelledby="notificationModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header justify-content-center position-relative">
+                            <h5 class="modal-title text-center" id="notificationModalLabel">Notification</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" style="top: 20px; right: 15px; position: absolute;"></button>
+                        </div>
+                        <div class="modal-body">    
+                            <!-- Post Author Details -->
+                            <div class="post-header d-flex align-items-center mb-3">
+                                <img src="media/images/profiles/123.jpg" alt="User Profile" class="profile-img me-3">
+                                <div>
+                                    <div class="d-flex">
+                                        <div class="fw-bold">John Doe</div>
+                                        <span id="postScopeContainer"><i id="postScope" class="fa-solid fa-user-group"></i></span>
+                                    </div>
+                                    <div class="text-muted">Pet: Buddy</div>
+                                </div>
+                            </div>
+            
+                            <!-- Post Content with Pictures -->
+                            <div class="post-content mb-3">
+                                <p>This is a sample caption describing the photos below. Buddy enjoying a sunny day at the park!</p>
+                                <div class="row g-2">
+                                    <div class="col-4">
+                                        <img src="media/images/posts/buddy.jpg" alt="Buddy in the park" class="img-fluid rounded img-thumbnail">
+                                    </div>
+                                    <div class="col-4">
+                                        <img src="media/images/posts/buddy.jpg" alt="Buddy playing with a ball" class="img-fluid rounded img-thumbnail">
+                                    </div>
+                                    <div class="col-4">
+                                        <img src="media/images/posts/buddy.jpg" alt="Buddy resting" class="img-fluid rounded img-thumbnail">
+                                    </div>
+                                </div>
+                            </div>
+            
+                            <!-- Reactions Section -->
+                            <div id="reactionsSection" class="mb-3">
+                                <div class="reaction mb-2 d-flex align-items-center">
+                                    <img src="media/images/profiles/456.jpg" alt="User" class="profile-img me-2">
+                                    <div>
+                                        <span class="fw-bold">Alex Johnson</span>
+                                        <p class="mb-1">Reacted with <span class="text-warning"><i class="fa fa-laugh-squint"></i> Haha</span></p>
+                                        <span class="text-muted">10:32 AM</span>
+                                        <div class="text-muted small">2 hours ago</div>
+                                    </div>
+                                </div>
+                                <!-- Additional reactions can go here -->
+                            </div>
+            
+                            <!-- Add Comment Section (Optional) -->
+                            <div class="mt-3">
+                                <div class="d-flex align-items-center">
+                                    <textarea class="form-control" rows="1" placeholder="Write a comment..."></textarea>
+                                </div>
+                                <button class="btn btn-primary btn-sm mt-2">Post Comment</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
 
 
@@ -1532,7 +1607,7 @@
                             <h5 class="">Pet Mates</h5>
                         </div>
                         <div class="petCollection">
-                            <div class="pet-item d-flex align-items-center mb-2">
+                            <div class="pet-item d-flex align-items-center mb-2" data-bs-toggle="modal" data-bs-target="#petProfileModal">
                                 <img src="media/images/petPics/retriever.jpg" alt="Pet 1" class="pet-img me-2">
                                 <div>
                                     <div class="pet-name me-auto">
@@ -1541,6 +1616,42 @@
                                     <div class="text-muted">Golden Retriever</div>
                                 </div>
                             </div>
+                            <!-- Pet Profile Modal -->
+                            <div class="modal fade" id="petProfileModal" tabindex="-1" aria-labelledby="petProfileModalLabel" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered">
+                                    <div class="modal-content">
+                                        <div class="modal-header justify-content-center position-relative">
+                                            <h5 class="modal-title text-center" id="petProfileModalLabel">Pet Profile</h5>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" style="top: 20px; right: 15px; position: absolute;"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <!-- Pet Profile Details -->
+                                            <div class="d-flex flex-column align-items-center mb-3">
+                                                <img src="media/images/petPics/retriever.jpg" alt="Pet Profile" class="pet-img2 rounded-circle mb-2">
+                                                <div class="text-center">
+                                                    <div class="fw-bold">Buddy</div>
+                                                    <div class="text-muted">Golden Retriever</div>
+                                                </div>
+                                            </div>
+                                            <!-- Vaccine Status -->
+                                            <div class="mb-3">
+                                                <span class="fw-bold">Vaccine Status:</span>
+                                                <span class="text-success">Fully Vaccinated</span>
+                                            </div>
+                                            <!-- Additional Pet Information (optional) -->
+                                            <div class="mb-3">
+                                                <span class="fw-bold">Age:</span>
+                                                <span>3 years</span>
+                                            </div>
+                                            <div class="mb-3">
+                                                <span class="fw-bold">Owner:</span>
+                                                <span>John Doe</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
                             <hr>
                             <div class="pet-item d-flex align-items-center mb-2">
                                 <img src="media/images/petPics/siamese.jpg" alt="Pet 2" class="pet-img me-2">

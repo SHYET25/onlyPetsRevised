@@ -1636,6 +1636,12 @@
                 $('#personalizedButton').addClass('contentTypeButtonDeactive').removeClass('contentTypeButtonActive');
             });
         });
+        
+            // Open Search Modal when the search icon is clicked
+            document.getElementById('searchIcon').addEventListener('click', function () {
+            const searchModal = new bootstrap.Modal(document.getElementById('searchModal'));
+            searchModal.show();
+        });
 
         $('#chatIcon').click(function() {
             $('#chatDropdown').toggle();

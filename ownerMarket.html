@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home Page</title>
-    <link rel="icon" href="../../images/homepage/running1.png" type="image/png">
+    <link rel="icon" href="media/images/utilities/paw.png" type="image/png">
 
     <!-- BS LINKS -->
     <!-- <link rel="stylesheet" href="../../bsCSS/bootstrap.css">
@@ -415,7 +415,7 @@
 
         #loadingScreen img {
             width: 300px; /* Adjust size as needed */
-            height: 200px; /* Adjust size as needed */
+            height: 400px; /* Adjust size as needed */
         }
 
         /* Responsive Table */
@@ -549,7 +549,7 @@
         #petMateList {
             width: 100%; /* Default width in "public" */
             margin-top: 10px;
-            height: 50%; /* Collapsed height */
+            height: 63%; /* Collapsed height */
             overflow: hidden;
             border-radius: 15px;
             text-align: center;
@@ -581,15 +581,11 @@
         .petCollection {
             height: 100%;
             margin-top: 20px;
-            scrollbar-gutter: stable; 
+     
             overflow: hidden;
         }
 
-        .petCollection:hover {
-            overflow: auto;
-            scrollbar-gutter: stable; /* Prevent scrollbar shift */
-            height: 100%;
-        }
+
         
         #postComposer:hover {
             height: 27%; /* Expand to a fixed height on hover */
@@ -717,6 +713,18 @@
         #postButton {
             font-weight: 700;
         }
+
+        #chatList {
+            overflow: hidden;
+            scrollbar-gutter: stable; /* Prevent scrollbar shift */
+        }
+
+
+        #chatList:hover {
+            overflow-y: auto; /* Add scroll if content overflows */
+            scrollbar-gutter: stable; /* Prevent scrollbar shift */
+            
+        }
     </style>
 
     
@@ -724,7 +732,7 @@
 </head>
 <body>
 <div id="loadingScreen" style="display: none;">
-        <img src="../../images/loadingAnimation.gif" alt="Loading...">
+        <img src="media/images/utilities/loading.gif" alt="Loading...">
     </div>
     
 
@@ -959,7 +967,7 @@
                         <h5><b>Customer Chats</b></h5>
                         
                         <div class="petCollection">
-                            <div id="chatList" style="max-height: 250px; overflow-y: auto;">
+                            <div id="chatList" style="max-height: 250px;">
                                 <!-- Sample Chat Item -->
                                 <div class="chat-item d-flex align-items-center mb-2" data-customer="John Doe" data-message="Is this still available?">
                                     <img src="media/images/profiles/123.jpg" class="rounded-circle me-2" width="40" height="40" alt="Customer 1">
@@ -981,6 +989,42 @@
                                     </div>
                                 </div>
             
+                                <div class="chat-item d-flex align-items-center mb-2" data-customer="Mike Johnson" data-message="When can you ship this?">
+                                    <img src="media/images/profiles/321.jpg" class="rounded-circle me-2" width="40" height="40" alt="Customer 3">
+                                    <div>
+                                        <div class="pet-name me-auto">
+                                            <div class="fw-bold">Renz</div>
+                                        </div>
+                                        <small>When can you ship this?</small>
+                                    </div>
+                                </div>
+                                <div class="chat-item d-flex align-items-center mb-2" data-customer="Mike Johnson" data-message="When can you ship this?">
+                                    <img src="media/images/profiles/321.jpg" class="rounded-circle me-2" width="40" height="40" alt="Customer 3">
+                                    <div>
+                                        <div class="pet-name me-auto">
+                                            <div class="fw-bold">Renz</div>
+                                        </div>
+                                        <small>When can you ship this?</small>
+                                    </div>
+                                </div>
+                                <div class="chat-item d-flex align-items-center mb-2" data-customer="Mike Johnson" data-message="When can you ship this?">
+                                    <img src="media/images/profiles/321.jpg" class="rounded-circle me-2" width="40" height="40" alt="Customer 3">
+                                    <div>
+                                        <div class="pet-name me-auto">
+                                            <div class="fw-bold">Renz</div>
+                                        </div>
+                                        <small>When can you ship this?</small>
+                                    </div>
+                                </div>
+                                <div class="chat-item d-flex align-items-center mb-2" data-customer="Mike Johnson" data-message="When can you ship this?">
+                                    <img src="media/images/profiles/321.jpg" class="rounded-circle me-2" width="40" height="40" alt="Customer 3">
+                                    <div>
+                                        <div class="pet-name me-auto">
+                                            <div class="fw-bold">Renz</div>
+                                        </div>
+                                        <small>When can you ship this?</small>
+                                    </div>
+                                </div>
                                 <div class="chat-item d-flex align-items-center mb-2" data-customer="Mike Johnson" data-message="When can you ship this?">
                                     <img src="media/images/profiles/321.jpg" class="rounded-circle me-2" width="40" height="40" alt="Customer 3">
                                     <div>
